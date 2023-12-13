@@ -1,0 +1,35 @@
+<h1>{{name}}</h1>
+
+<dl>
+    <td> Nombre: </td>
+    <dd>{{name}} </dd>
+
+    <td> Edad: </td>
+    <dd>{{age}} </dd>
+
+    <td> Método: </td>
+    <dd>{{getHeroDescription()}} </dd>
+
+    <td> Capitalizado: </td>
+    <dd>{{capitalizedName}}</dd>
+
+</dl>
+
+<button
+ class="btn btn-primary mx-2" 
+ (click)="changeName()"
+
+ *ngIf="name ==='ironman'"> 
+ <!-- La directiva *ngIf muestra una sección de la vista del html dependiendp de si la condición dentro de ella se cumple -->
+ Cambiar nombre
+</button>
+
+
+<button 
+class="btn btn-primary" 
+(click)="changeAge()"
+*ngIf="age===45">
+Cambiar edad
+</button>
+
+<button class="btn  btn-primary mx-2"  (click)="reset()">Reset</button>

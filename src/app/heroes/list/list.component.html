@@ -1,0 +1,32 @@
+<h3>Lista de héroes</h3>
+
+<!-- <h3  *ngIf="deletedHero">
+Héroe borrado <small class="text-danger">{{ deletedHero }}</small>
+</h3>
+<h3 *ngIf="!deletedHero">No ha borrado ningún héroe</h3> -->
+
+
+<!-- La directiva ngIf puede complementarse con un else para determinar si un elemento html será mostrado o no
+     Dentro de las "", poner un ; para declarar el "else"
+     Se hace referencia al elemnto html que será mostrdo si la primera condición no se cumple -->
+<div *ngIf="deletedHero; else nothingDeleted">
+    <h3>Héroe borrado <small class="text-danger">{{  deletedHero }}</small></h3>
+</div>
+
+<!-- El elemento que será mostrado si la primera condición del ngIf no se cumple se selecciona con un # dentro de su etiqueta de ng-template-->
+<ng-template #nothingDeleted>
+    <h3 notingDeleted>No ha borrado ningún héroe</h3>
+</ng-template>
+
+<button 
+class="btn btn-danger " 
+(click)="removeLastHero()"
+*ngIf="heroesList.length>0">
+Borrar último héroe
+</button>
+
+<ul>
+    <!-- La directiva *ngFor me ayuda a duplicar elementos html cuyos valores puedan ser barridos usando arreglos -->
+    <!-- importante usar la palabra reservada let para crear la variable a la que se asignarán los valores que serán barridos -->
+    <li *ngFor="let name of heroesList"> {{ name }}</li>
+</ul>
