@@ -1,0 +1,21 @@
+<h1>DBZ Personajes</h1>
+<hr>
+<div class="row">
+
+<div class="col">
+    <!-- En la línea siguiente se están asignando los valores de characters (arreglo declarado en el main-page.ts)
+    a la property characterList (property declarada en el list.ts) -->
+   <app-dbz-list 
+   [characterList]="characters"
+   (onDelete)="onDeleteCharacter($event)"
+   >
+</app-dbz-list>
+</div>
+<div class="col">
+    <!-- onNewCharacter es el evento que se envía usando output desde el componente hijo, y addNewCharacter(ahora "onNewCharacter") es el método que controla ese evento 
+    desde el componente padre -->
+    <!-- En ($event) estoy guardando el valor que se envía a addNewCharacter -->
+    <app-add-dbz-character (onNewCharacter)="onNewCharacter($event)"></app-add-dbz-character>
+</div>
+
+</div>
